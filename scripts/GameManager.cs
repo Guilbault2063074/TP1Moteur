@@ -8,6 +8,7 @@ public partial class GameManager : SceneTree
 	
 	private LevelManager levelManager;
 	private SaveManager saveManager;
+	private double _timeElapsed;
 	
 	public static GameManager Get()
 	{

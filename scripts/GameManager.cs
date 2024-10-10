@@ -6,8 +6,8 @@ public partial class GameManager : SceneTree
 {
 	private static GameManager instance;
 	
-	private LevelManager levelManager;
-	private SaveManager saveManager;
+	private LevelManager _levelManager;
+	private SaveManager _saveManager;
 	private double _timeElapsed;
 	
 	public static GameManager Get()
@@ -26,6 +26,11 @@ public partial class GameManager : SceneTree
 	{
 		GD.Print("GameManager Initialized:");
 		GD.Print($"  Starting Time: {_timeElapsed}");
+		
+		_levelManager = new LevelManager();
+		_saveManager = new SaveManager();
+		
+		_levelManager.LoadLevel("res://scene/Levels/Level1.tscn");
 	}
 		
 	public override bool _Process(double delta)
@@ -40,6 +45,15 @@ public partial class GameManager : SceneTree
 		
 		return false;
 	}
+	
+	public LevelManager GetLevelManager()
+	{
+		return _levelManager;
+	}
 		
+	public SaveManager GetSaveManager()
+	{
+		return _saveManager;
+	}
 	
 }

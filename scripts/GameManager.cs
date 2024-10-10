@@ -29,7 +29,11 @@ public partial class GameManager : SceneTree
 		
 		_levelManager = new LevelManager();
 		_saveManager = new SaveManager();
-		
+	}
+	
+	public void _Ready()
+	{
+		GD.Print("GameManager Ready");
 		_levelManager.LoadLevel("res://scene/Levels/Level1.tscn");
 	}
 		

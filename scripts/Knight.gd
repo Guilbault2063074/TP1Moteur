@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Knight
+
 var direction : Vector2 = Vector2()
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 

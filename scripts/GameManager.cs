@@ -34,9 +34,10 @@ public partial class GameManager : SceneTree
 		if (Input.IsActionPressed("ui_cancel")) //
 		{
 			GD.Print("Escape pressed, handle exit logic");
+			return true;
 		}
 		
-		return true;
+		return false;
 	}
 		
 	

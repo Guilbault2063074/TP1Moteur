@@ -12,29 +12,29 @@ public partial class GameManager : SceneTree
 	
 	public static GameManager Get()
 	{
-			if (instance == null)
-			{
-				instance = new GameManager();
-				GD.Print("GameManager instance created");
-				instance._Initialize();
-			}
+			
 			GD.Print("return gamemanager");
 			return instance;
 	}
 		
 	public override void _Initialize()
 	{
-		GD.Print("GameManager Initialized:");
-		GD.Print($"  Starting Time: {_timeElapsed}");
+		//GD.Print("GameManager Initialized:");
+		//GD.Print($"  Starting Time: {_timeElapsed}");
+		
+		instance = this;
 		
 		_levelManager = new LevelManager();
 		_saveManager = new SaveManager();
+		
+		Ready();
 	}
 	
-	public void _Ready()
+	public void Ready()
 	{
-		GD.Print("GameManager Ready");
-		_levelManager.LoadLevel("res://scene/Levels/Level1.tscn");
+		//GD.Print("GameManager Ready");
+		//_levelManager.LoadLevel("res://scene/Levels/Level1.tscn");
+		Root.AddChild(_levelManager);
 	}
 		
 	public override bool _Process(double delta)

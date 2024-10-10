@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6754x3e0mr7m"]
+
+[ext_resource type="Script" path="res://scene/Levels/Root.cs" id="1_sxwaf"]
+
+[node name="Root" type="Node2D" groups=["Persist"]]
+script = ExtResource("1_sxwaf")

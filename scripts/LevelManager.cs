@@ -1,11 +1,23 @@
 using Godot;
 using System;
 
+
 public partial class LevelManager : Node
 {
-	public void LoadLevel(String sceneName)
+public Node simultaneousScene;
+public Node currentScene;
+
+
+
+
+public void LoadLevel(string sceneName, string currentScene)
 	{
-		GD.Print(sceneName);
-		GetTree().ChangeSceneToFile("sceneName");
+		//GD.Print(sceneName);
+		simultaneousScene = ResourceLoader.Load<PackedScene>(sceneName).Instantiate();
+		//GD.Print(simultaneousScene);
+		//GameManager.Get().Root.AddChild(simultaneousScene);
+		GameManager.Get().ChangeSceneToFile(sceneName);
+		
+
 	}
 }

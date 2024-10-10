@@ -4,7 +4,12 @@ using System;
 public partial class Door : Area2D
 {
 	[Export]
-	public string NextLevel = "res://scene/Levels/Level2.tscn";
+	public string NextLevel = "";
+	
+	[Export]
+	public string CurrentLevel = "";
+	
+	private bool hasBeenTriggered = false;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -14,14 +19,22 @@ public partial class Door : Area2D
 	
 	 private void OnBodyEntered(Node body)
 	{
-		
+		GD.Print(body);
+		GD.Print(NextLevel);
 		if (body is Knight)
 		{
-			GD.Print("Knight has entered the door.");
+			if(!hasBeenTriggered)
+			{
+				//hasBeenTriggered = true;
+				GD.Print("Knight has entered the door.");
+				GameManager.Get().GetLevelManager().LoadLevel(NextLevel, CurrentLevel );
+			}
 			
 			
-			GameManager.Get().GetLevelManager().LoadLevel(NextLevel);
+			
 		}
+		GD.Print(GameManager.Get().GetSaveManager());
+	
 	}
 	
 	public override void _ExitTree()

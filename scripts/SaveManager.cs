@@ -12,4 +12,12 @@ public partial class SaveManager : Node
 	public override void _Process(double delta)
 	{
 	}
+	
+	public void SaveGame(string _filePath){
+		var saveNodes = GetTree().GetNodesInGroup("Persist");
+	}
+	
+	public void LoadGame(string _filePath){
+		//Call Level manager to load the level and player coordinates
+	}
 }

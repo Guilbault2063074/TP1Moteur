@@ -17,7 +17,7 @@ public partial class SaveManager : Node
 		 using var saveFile = FileAccess.Open(_filePath, FileAccess.ModeFlags.Write);
 
 	GD.Print("SaveGame Accessed");
-	var saveNodes = GetTree().GetNodesInGroup("Persist");
+	var saveNodes = GameManager.Get().GetNodesInGroup("Persist");
 	foreach (Node saveNode in saveNodes)
 	{
 		GD.Print("SaveGameForeachaccessed");
@@ -59,7 +59,7 @@ public partial class SaveManager : Node
 	// This will vary wildly depending on the needs of a project, so take care with
 	// this step.
 	// For our example, we will accomplish this by deleting saveable objects.
-	var saveNodes = GetTree().GetNodesInGroup("Persist");
+	var saveNodes = GameManager.Get().GetNodesInGroup("Persist");
 	foreach (Node saveNode in saveNodes)
 	{
 		saveNode.QueueFree();

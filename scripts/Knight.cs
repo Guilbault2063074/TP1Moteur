@@ -56,8 +56,32 @@ public partial class Knight : CharacterBody2D
 		{
 			animatedSprite2D.Play("idle");
 		}
+		
+		if (Input.IsActionPressed("Save"))
+		{
+			GD.Print("Save Pressed");
+			GameManager.Get().GetSaveManager().SaveGame("user://savegame.save");
+		}
+		if (Input.IsActionPressed("Load"))
+		{
+			GD.Print("Load Pressed");
+			GameManager.Get().GetSaveManager().LoadGame("user://savegame.save");
+		}
 
 		inputVelocity = inputVelocity.Normalized();
 		Velocity = inputVelocity * 200; // Use the built-in velocity
 	}
+	
+	public Godot.Collections.Dictionary<string, Variant> Save()
+{
+	GD.Print("Save accessed");
+	GD.Print(SceneFilePath, GetParent().GetPath(), Position.X, Position.Y);
+	return new Godot.Collections.Dictionary<string, Variant>()
+	{
+		{ "Filename", SceneFilePath },
+		{ "Parent", GetParent().GetPath() },
+		{ "PosX", Position.X }, 
+		{ "PosY", Position.Y }
+	};
+}
 }

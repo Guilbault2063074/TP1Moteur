@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scene/Levels/Root.cs" id="1_sxwaf"]
 
-[node name="Root" type="Node2D" groups=["Persist"]]
+[node name="Root" type="Node2D"]
 script = ExtResource("1_sxwaf")

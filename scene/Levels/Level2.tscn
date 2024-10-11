@@ -349,7 +349,7 @@ sources/1 = SubResource("TileSetAtlasSource_r3pu4")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ccbx0"]
 
-[node name="Level2" type="Node2D" groups=["Persist"]]
+[node name="Level2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-1, 0)

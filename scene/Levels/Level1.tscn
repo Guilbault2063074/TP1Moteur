@@ -466,7 +466,7 @@ sources/3 = SubResource("TileSetAtlasSource_3ti5c")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2npcm"]
 
-[node name="Level1" type="Node2D" groups=["Persist"]]
+[node name="Level1" type="Node2D"]
 position = Vector2(-39, 30)
 
 [node name="TileMap" type="TileMap" parent="."]
